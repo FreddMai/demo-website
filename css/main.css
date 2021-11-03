@@ -1,0 +1,10 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.block .title {
+  font-size: 3rem;
+}
+
+/*# sourceMappingURL=main.css.map */
