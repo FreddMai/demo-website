@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "HelveticaNeueRoman";
+  src: url("../assets/fonts/Linotype\ -\ HelveticaNeueLTPro-Roman.otf");
+}
+@font-face {
+  font-family: "HelveticaNeueBd";
+  src: url("../assets/fonts/Linotype\ -\ HelveticaNeueLTPro-Bd.otf");
+}
+@font-face {
+  font-family: "HelveticaNeueMd";
+  src: url("../assets/fonts/Linotype\ -\ HelveticaNeueLTPro-Md.otf");
+}
+@font-face {
+  font-family: "HelveticaNeueMdCn";
+  src: url("../assets/fonts/Linotype\ -\ HelveticaNeueLTPro-MdCn.otf");
+}
+
+.main {
+  background-image: url("../assets/images/Header_BG.png");
+  background-color: #e4e2e2;
+  padding: 4rem 0;
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 4rem;
+    .title {
+      font-size: 3rem;
+      font-family: HelveticaNeueBd;
+      color: blueviolet;
+      margin: 0;
+    }
+    .sub-title {
+      font-size: 1rem;
+      font-family: HelveticaNeueRoman;
+    }
+  }
+  .info-block {
+    display: flex;
+    justify-content: center;
+    .info-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 5rem;
+      .sub-title {
+        font-size: 1.1rem;
+        font-family: HelveticaNeueMd;
+        margin: 1rem 0;
+        text-align: center;
+      }
+      .par {
+        font-size: 1rem;
+        font-family: HelveticaNeueRoman;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+}
