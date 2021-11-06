@@ -1,3 +1,8 @@
+$primary-color: #e2e8f0;
+$title-color: blueviolet;
+$secondary-color: #e4e2e2;
+$block-width: 1200px;
+
 @font-face {
   font-family: "HelveticaNeueRoman";
   src: url("../assets/fonts/Linotype\ -\ HelveticaNeueLTPro-Roman.otf");
@@ -27,69 +32,119 @@ html {
   font-size: 20px;
 }
 
-.header {
-  border-bottom: 1px solid #e2e8f0;
-  background-color: #e2e8f0;
-  .navbar {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.5rem 0;
+  background-color: $primary-color;
+  min-height: 3rem;
+  .nav-logo {
+    font-size: 2rem;
+    font-family: HelveticaNeueBd;
+    color: black;
+  }
+  .hamburger {
+    display: none;
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: #101010;
+    }
+  }
+  .nav-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
-    .nav-logo {
-      font-size: 2rem;
-      font-family: HelveticaNeueBd;
-      color: black;
-    }
-    .hamburger {
-      display: none;
-      .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-        background-color: #101010;
-      }
-    }
-    .nav-menu {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .nav-item {
-        margin-left: 5rem;
-        .nav-link {
-          font-size: 0.7rem;
-          font-weight: 400;
-          color: black;
-          font-family: HelveticaNeueBd;
-        }
-        .nav-link:hover {
-          color: blueviolet;
+    .nav-item {
+      margin-left: 5rem;
+      .nav-link {
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: black;
+        font-family: HelveticaNeueBd;
+        &:hover {
+          color: $title-color;
         }
       }
-      .nav-item-btn {
-        margin-left: 5rem;
-        .nav-link {
-          font-size: 0.7rem;
-          font-family: HelveticaNeueMd;
-          color: white;
-          background-color: blueviolet;
-          padding: 0.8rem 1rem 0.6rem;
-          border: 0;
-          border-radius: 5px;
-        }
-
-        .nav-link:hover {
-          // border: 1px solid blueviolet;
-          color: blueviolet;
+      &.active .nav-link {
+        color: $title-color;
+      }
+    }
+    .nav-item:last-of-type {
+      margin-left: 2rem;
+      .nav-link {
+        font-size: 0.7rem;
+        font-family: HelveticaNeueMd;
+        color: white;
+        background-color: $title-color;
+        padding: 0.8rem 1rem 0.6rem;
+        border: 0;
+        border-radius: 5px;
+        &:hover {
+          color: $title-color;
           background-color: white;
         }
       }
     }
-    .nav-menu > .active > a {
-      color: blueviolet !important;
+  }
+}
+.navbar-sub {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  background-color: $primary-color;
+  border-bottom: 1px solid #c9c4c4;
+  position: sticky;
+  top: 0;
+  .nav-menu-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0.4rem;
+    .nav-item {
+      .nav-link {
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: #8b8787;
+        font-family: HelveticaNeueRoman;
+        padding: 0.5rem 1rem;
+      }
+      .nav-link:hover {
+        color: $title-color;
+      }
+      &.active .nav-link {
+        color: $title-color;
+        border-bottom: 1px solid $title-color;
+      }
     }
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  animation: fadein 500ms;
+}
+
+.sub-sticky {
+  position: sticky;
+  top: 3.5rem;
+  transform: translateY(0);
+  animation: fadein 1000ms;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -99,7 +154,7 @@ body {
 
 .main {
   background-image: url("../assets/images/Header_BG.png");
-  background-color: #e4e2e2;
+  background-color: $secondary-color;
   background-position: center right;
   background-size: cover;
   box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 5%);
@@ -113,8 +168,9 @@ body {
     .title {
       font-size: 3rem;
       font-family: HelveticaNeueBd;
-      color: blueviolet;
+      color: $title-color;
       margin: 0;
+      padding-bottom: 1rem;
     }
     .sub-title {
       font-size: 1rem;
@@ -124,14 +180,13 @@ body {
   .info-block {
     display: flex;
     justify-content: center;
-    // max-width: 1200px;
     margin: auto;
     .info-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 0 2rem;
-      width: 400px;
+      width: 500px;
       .sub-title {
         font-size: 1.1rem;
         font-family: HelveticaNeueMd;
@@ -155,14 +210,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // padding: 0 20rem;
     margin: auto;
-    max-width: 1200px;
+    max-width: $block-width;
     .title {
       font-size: 1.4rem;
       font-family: HelveticaNeueMd;
-      color: blueviolet;
+      color: $title-color;
       margin: 0;
+      padding-bottom: 1rem;
     }
     .sub-title {
       font-size: 1rem;
@@ -179,9 +234,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // padding: 0 20rem;
     margin: auto;
-    max-width: 1200px;
+    max-width: $block-width;
 
     .title {
       font-size: 1.8rem;
@@ -200,6 +254,7 @@ body {
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
+      background-position-y: -3vh;
       margin-top: 3rem;
       .column {
         display: flex;
@@ -214,11 +269,12 @@ body {
           height: 1.5rem;
         }
         .purple {
-          color: blueviolet;
+          color: $title-color;
         }
         .border {
-          border-bottom: 1px solid #e2e8f0;
+          border-bottom: 1px solid $primary-color;
           width: 100%;
+          height: 3.2rem;
         }
         .img-block {
           text-align: center;
@@ -234,59 +290,55 @@ body {
           font-size: 0.8rem;
           font-family: HelveticaNeueRoman;
           margin: 0;
-          padding: 0.8rem;
+          padding: 1.2rem 0.8rem;
           text-align: center;
           line-height: 1rem;
-          height: 1.5rem;
         }
       }
       .column:first-of-type {
         align-items: start;
-        background-color: rgba(white, 0.4);
+        background-color: rgba(white, 0.2);
         .table-par {
           font-size: 0.8rem;
           font-family: HelveticaNeueBd;
           margin: 0;
-          padding: 0.8rem 0;
+          padding: 1.2rem 0;
           text-align: start;
           line-height: 1rem;
-          height: 1.5rem;
         }
       }
       .column:nth-of-type(2n) {
-        background-color: rgba(white, 0.8);
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: rgba(white, 0.7);
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        box-shadow: 0px 5px 20px -2px rgba(0, 0, 0, 0.2),
+          0px -5px 20px -5px rgba(0, 0, 0, 0.19);
       }
       .column:last-of-type {
-        background-color: rgba(#e2e8f0, 0.5);
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        background-color: rgba($primary-color, 0.5);
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
       }
     }
   }
 }
 
 .register {
-  padding: 3rem 0;
+  padding: 4.5rem 0;
   background-image: url("../assets/images/Enterprise_BG.png");
   background-repeat: no-repeat;
   background-size: cover;
   .text-block {
     display: flex;
     flex-direction: column;
-    // align-items: left;
-    // padding: 0 20rem;
     margin: auto;
-    max-width: 1200px;
-
+    max-width: $block-width;
     .title {
       font-size: 2.8rem;
       font-family: HelveticaNeueMd;
       color: white;
       margin: 0;
+      padding-bottom: 1rem;
     }
     .btn-block {
       display: flex;
@@ -295,12 +347,13 @@ body {
         font-family: HelveticaNeueRoman;
         color: white;
         margin-right: 3rem;
+        margin: 0 3rem 0 0;
         line-height: 1.7rem;
       }
       .btn {
         font-size: 0.9rem;
         font-family: HelveticaNeueBd;
-        color: blueviolet;
+        color: $title-color;
         padding: 0.5rem 2rem 0.3rem;
         width: 15rem;
         height: 3.5rem;
@@ -312,21 +365,21 @@ body {
       .btn:hover {
         border: 1px solid white;
         color: white;
-        background-color: blueviolet;
+        background-color: $title-color;
       }
     }
   }
 }
 
 .lorem {
-  padding: 4rem 0;
-  background-color: #e4e2e2;
+  padding: 5rem 0 10rem;
+  background-color: $secondary-color;
   box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 5%);
   .lorem-block {
     display: flex;
     flex-direction: row;
     margin: auto;
-    max-width: 1200px;
+    max-width: $block-width;
     .text-block {
       display: flex;
       flex-direction: column;
@@ -335,7 +388,7 @@ body {
       .title {
         font-size: 2.8rem;
         font-family: HelveticaNeueMd;
-        color: blueviolet;
+        color: $title-color;
         margin: 0;
       }
       .sub-title {
@@ -355,18 +408,18 @@ body {
         font-size: 0.9rem;
         font-family: HelveticaNeueMd;
         color: white;
-        background-color: blueviolet;
-        padding: 0.5rem 2rem 0.3rem;
+        background-color: $title-color;
+        padding: 0.5rem 1.5rem 0.3rem;
         width: 8rem;
-        height: 3.5rem;
+        height: 3rem;
         border: 0;
         border-radius: 5px;
         box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%),
           0 6px 20px 0 rgb(0 0 0 / 19%);
       }
       .btn:hover {
-        border: 1px solid blueviolet;
-        color: blueviolet;
+        border: 1px solid $title-color;
+        color: $title-color;
         background-color: white;
       }
     }
@@ -388,7 +441,8 @@ body {
     .sub-title,
     .par {
       font-size: 0.9rem;
-      font-family: HelveticaNeueMd;
+      font-family: HelveticaNeueBd;
+      width: 8rem;
     }
     .par-title {
       margin: 0.8rem 0 0;
@@ -401,7 +455,7 @@ body {
       font-family: HelveticaNeueBd;
     }
     .sub-title {
-      color: blueviolet;
+      color: $title-color;
     }
     .socials {
       padding: 0.2rem 0 1.5rem;
@@ -410,8 +464,8 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
-  .header .navbar .nav-menu .nav-item,
-  .header .navbar .nav-menu .nav-item-btn {
+  .navbar .nav-menu .nav-item,
+  .navbar .nav-menu .nav-item-btn {
     margin-left: 2rem;
   }
 
@@ -469,15 +523,17 @@ body {
 }
 
 @media only screen and (max-width: 950px) {
-  .header .navbar {
+  .navbar {
+    position: sticky;
+    top: 0;
     .nav-menu {
       position: fixed;
       left: -200%;
-      top: 5rem;
+      top: 3.5rem;
       flex-direction: column;
       background-color: #fff;
       width: 100%;
-      border-radius: 10px;
+      border-radius: 0px;
       text-align: center;
       transition: 0.3s;
       box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
@@ -505,6 +561,10 @@ body {
     .hamburger.active .bar:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
     }
+  }
+
+  .navbar-sub {
+    position: unset;
   }
 
   .main {
@@ -536,10 +596,13 @@ body {
     padding: 0 5rem;
   }
 
-  .lorem .lorem-block {
-    padding: 0 5rem;
-    .text-block .sub-title {
-      text-align: center;
+  .lorem {
+    padding: 5rem 0;
+    .lorem-block {
+      padding: 0 5rem;
+      .text-block .sub-title {
+        text-align: center;
+      }
     }
   }
 

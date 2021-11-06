@@ -26,25 +26,23 @@ html {
   font-size: 20px;
 }
 
-.header {
-  border-bottom: 1px solid #e2e8f0;
-  background-color: #e2e8f0;
-}
-.header .navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 0.6rem 1.5rem 0;
+  background-color: #e2e8f0;
+  min-height: 3rem;
 }
-.header .navbar .nav-logo {
+.navbar .nav-logo {
   font-size: 2rem;
   font-family: HelveticaNeueBd;
   color: black;
 }
-.header .navbar .hamburger {
+.navbar .hamburger {
   display: none;
 }
-.header .navbar .hamburger .bar {
+.navbar .hamburger .bar {
   display: block;
   width: 25px;
   height: 3px;
@@ -53,27 +51,30 @@ html {
   transition: all 0.3s ease-in-out;
   background-color: #101010;
 }
-.header .navbar .nav-menu {
+.navbar .nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header .navbar .nav-menu .nav-item {
+.navbar .nav-menu .nav-item {
   margin-left: 5rem;
 }
-.header .navbar .nav-menu .nav-item .nav-link {
+.navbar .nav-menu .nav-item .nav-link {
   font-size: 0.7rem;
   font-weight: 400;
   color: black;
   font-family: HelveticaNeueBd;
 }
-.header .navbar .nav-menu .nav-item .nav-link:hover {
+.navbar .nav-menu .nav-item .nav-link:hover {
   color: blueviolet;
 }
-.header .navbar .nav-menu .nav-item-btn {
-  margin-left: 5rem;
+.navbar .nav-menu .nav-item.active .nav-link {
+  color: blueviolet;
 }
-.header .navbar .nav-menu .nav-item-btn .nav-link {
+.navbar .nav-menu .nav-item:last-of-type {
+  margin-left: 2rem;
+}
+.navbar .nav-menu .nav-item:last-of-type .nav-link {
   font-size: 0.7rem;
   font-family: HelveticaNeueMd;
   color: white;
@@ -82,14 +83,63 @@ html {
   border: 0;
   border-radius: 5px;
 }
-.header .navbar .nav-menu .nav-item-btn .nav-link:hover {
+.navbar .nav-menu .nav-item:last-of-type .nav-link:hover {
   color: blueviolet;
   background-color: white;
 }
-.header .navbar .nav-menu > .active > a {
-  color: blueviolet !important;
+
+.navbar-sub {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  background-color: #e2e8f0;
+  border-bottom: 1px solid #c9c4c4;
+  position: sticky;
+  top: 0;
+}
+.navbar-sub .nav-menu-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0.4rem;
+}
+.navbar-sub .nav-menu-sub .nav-item .nav-link {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #8b8787;
+  font-family: HelveticaNeueRoman;
+  padding: 0.5rem 1rem;
+}
+.navbar-sub .nav-menu-sub .nav-item .nav-link:hover {
+  color: blueviolet;
+}
+.navbar-sub .nav-menu-sub .nav-item.active .nav-link {
+  color: blueviolet;
+  border-bottom: 1px solid blueviolet;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+  animation: fadein 500ms;
+}
+
+.sub-sticky {
+  position: sticky;
+  top: 3.5rem;
+  transform: translateY(0);
+  animation: fadein 1000ms;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 body {
   margin: 0;
 }
@@ -114,6 +164,7 @@ body {
   font-family: HelveticaNeueBd;
   color: blueviolet;
   margin: 0;
+  padding-bottom: 1rem;
 }
 .main .text-block .sub-title {
   font-size: 1rem;
@@ -129,7 +180,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 0 2rem;
-  width: 400px;
+  width: 500px;
 }
 .main .info-block .info-box .sub-title {
   font-size: 1.1rem;
@@ -160,6 +211,7 @@ body {
   font-family: HelveticaNeueMd;
   color: blueviolet;
   margin: 0;
+  padding-bottom: 1rem;
 }
 .about .text-block .sub-title {
   font-size: 1rem;
@@ -195,6 +247,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  background-position-y: -3vh;
   margin-top: 3rem;
 }
 .pricing .table-block .table .column {
@@ -216,6 +269,7 @@ body {
 .pricing .table-block .table .column .border {
   border-bottom: 1px solid #e2e8f0;
   width: 100%;
+  height: 3.2rem;
 }
 .pricing .table-block .table .column .img-block {
   text-align: center;
@@ -231,38 +285,36 @@ body {
   font-size: 0.8rem;
   font-family: HelveticaNeueRoman;
   margin: 0;
-  padding: 0.8rem;
+  padding: 1.2rem 0.8rem;
   text-align: center;
   line-height: 1rem;
-  height: 1.5rem;
 }
 .pricing .table-block .table .column:first-of-type {
   align-items: start;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .pricing .table-block .table .column:first-of-type .table-par {
   font-size: 0.8rem;
   font-family: HelveticaNeueBd;
   margin: 0;
-  padding: 0.8rem 0;
+  padding: 1.2rem 0;
   text-align: start;
   line-height: 1rem;
-  height: 1.5rem;
 }
 .pricing .table-block .table .column:nth-of-type(2n) {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  box-shadow: 0px 5px 20px -2px rgba(0, 0, 0, 0.2), 0px -5px 20px -5px rgba(0, 0, 0, 0.19);
 }
 .pricing .table-block .table .column:last-of-type {
   background-color: rgba(226, 232, 240, 0.5);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .register {
-  padding: 3rem 0;
+  padding: 4.5rem 0;
   background-image: url("../assets/images/Enterprise_BG.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -278,6 +330,7 @@ body {
   font-family: HelveticaNeueMd;
   color: white;
   margin: 0;
+  padding-bottom: 1rem;
 }
 .register .text-block .btn-block {
   display: flex;
@@ -287,6 +340,7 @@ body {
   font-family: HelveticaNeueRoman;
   color: white;
   margin-right: 3rem;
+  margin: 0 3rem 0 0;
   line-height: 1.7rem;
 }
 .register .text-block .btn-block .btn {
@@ -307,7 +361,7 @@ body {
 }
 
 .lorem {
-  padding: 4rem 0;
+  padding: 5rem 0 10rem;
   background-color: #e4e2e2;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -347,9 +401,9 @@ body {
   font-family: HelveticaNeueMd;
   color: white;
   background-color: blueviolet;
-  padding: 0.5rem 2rem 0.3rem;
+  padding: 0.5rem 1.5rem 0.3rem;
   width: 8rem;
-  height: 3.5rem;
+  height: 3rem;
   border: 0;
   border-radius: 5px;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -377,7 +431,8 @@ body {
 .footer .footer-block .sub-title,
 .footer .footer-block .par {
   font-size: 0.9rem;
-  font-family: HelveticaNeueMd;
+  font-family: HelveticaNeueBd;
+  width: 8rem;
 }
 .footer .footer-block .par-title {
   margin: 0.8rem 0 0;
@@ -397,8 +452,8 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
-  .header .navbar .nav-menu .nav-item,
-.header .navbar .nav-menu .nav-item-btn {
+  .navbar .nav-menu .nav-item,
+.navbar .nav-menu .nav-item-btn {
     margin-left: 2rem;
   }
 
@@ -451,39 +506,47 @@ body {
   }
 }
 @media only screen and (max-width: 950px) {
-  .header .navbar .nav-menu {
+  .navbar {
+    position: sticky;
+    top: 0;
+  }
+  .navbar .nav-menu {
     position: fixed;
     left: -200%;
-    top: 5rem;
+    top: 3.5rem;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0px;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     margin: auto;
     padding: 0;
   }
-  .header .navbar .nav-menu .nav-item,
-.header .navbar .nav-menu .nav-item-btn {
+  .navbar .nav-menu .nav-item,
+.navbar .nav-menu .nav-item-btn {
     margin: 1rem 0;
   }
-  .header .navbar .nav-menu.active {
+  .navbar .nav-menu.active {
     left: 0;
   }
-  .header .navbar .hamburger {
+  .navbar .hamburger {
     display: block;
     cursor: pointer;
   }
-  .header .navbar .hamburger.active .bar:nth-child(2) {
+  .navbar .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
-  .header .navbar .hamburger.active .bar:nth-child(1) {
+  .navbar .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  .header .navbar .hamburger.active .bar:nth-child(3) {
+  .navbar .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar-sub {
+    position: unset;
   }
 
   .main {
@@ -515,6 +578,9 @@ body {
     padding: 0 5rem;
   }
 
+  .lorem {
+    padding: 5rem 0;
+  }
   .lorem .lorem-block {
     padding: 0 5rem;
   }
