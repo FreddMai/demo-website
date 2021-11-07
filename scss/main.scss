@@ -39,6 +39,7 @@ html {
   padding: 0.6rem 1.5rem 0;
   background-color: $primary-color;
   min-height: 3rem;
+  top: 3rem;
   .nav-logo {
     font-size: 2rem;
     font-family: HelveticaNeueBd;
@@ -93,6 +94,7 @@ html {
     }
   }
 }
+
 .navbar-sub {
   display: flex;
   justify-content: center;
@@ -101,6 +103,7 @@ html {
   border-bottom: 1px solid #c9c4c4;
   position: sticky;
   top: 0;
+  transition: top 500ms;
   .nav-menu-sub {
     display: flex;
     justify-content: space-between;
@@ -135,7 +138,6 @@ html {
 .sub-sticky {
   position: sticky;
   top: 3.5rem;
-  transform: translateY(0);
   animation: fadein 1000ms;
 }
 
@@ -520,6 +522,32 @@ body {
       }
     }
   }
+
+  .pricing .table-block .table {
+    .column {
+      width: 250px;
+      .table-title {
+        font-size: 1rem;
+        padding: 0.9rem;
+        height: 1.2rem;
+      }
+      .border {
+        height: 2.8rem;
+        .table-par {
+          font-size: 0.7rem;
+          padding: 0.8rem 0.6rem;
+        }
+      }
+      .img-block .img {
+        height: 0.8rem;
+      }
+    }
+    .column:first-of-type .table-par,
+    .column .table-par {
+      font-size: 0.7rem;
+      padding: 0.8rem 0.6rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 950px) {
@@ -540,7 +568,8 @@ body {
       margin: auto;
       padding: 0;
       .nav-item,
-      .nav-item-btn {
+      .nav-item-btn,
+      .nav-item:last-of-type {
         margin: 1rem 0;
       }
     }
@@ -565,6 +594,10 @@ body {
 
   .navbar-sub {
     position: unset;
+    padding: 0 1rem;
+    .nav-menu-sub .nav-item .nav-link {
+      padding: 0.5rem;
+    }
   }
 
   .main {
@@ -581,6 +614,17 @@ body {
       .info-box {
         padding: 0.8rem 2rem;
         width: auto;
+        .sub-title {
+          font-size: 0.8rem;
+          margin: 0.7rem 0;
+        }
+        .par {
+          font-size: 0.7rem;
+        }
+        img {
+          width: 45px;
+          height: 45px;
+        }
       }
     }
   }
@@ -589,19 +633,91 @@ body {
     padding: 0;
     .text-block {
       padding: 4rem 5rem;
+      .title {
+        font-size: 1.7rem;
+      }
+      .btn-block {
+        .sub-title {
+          font-size: 0.8rem;
+        }
+        .btn {
+          font-size: 0.7rem;
+          width: 10rem;
+          height: 2.5rem;
+        }
+      }
     }
   }
 
-  .about .text-block {
-    padding: 0 5rem;
+  .about {
+    padding: 3rem 0;
+    .text-block {
+      padding: 0 5rem;
+      .sub-title {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .pricing .table-block {
+    .title {
+      font-size: 1.4rem;
+    }
+    .table {
+      .column {
+        width: 200px;
+        .table-title {
+          font-size: 0.7rem;
+          padding: 0.9rem;
+          height: 1rem;
+        }
+        .border {
+          height: 2.4rem;
+          .table-par {
+            font-size: 0.5rem;
+            padding: 0.8rem 0.6rem;
+            line-height: 0.7rem;
+          }
+        }
+        .img-block .img {
+          height: 0.8rem;
+        }
+        span:last-of-type {
+          padding-bottom: 1rem;
+        }
+      }
+      .column:first-of-type .table-par,
+      .column .table-par {
+        font-size: 0.5rem;
+        padding: 0.8rem 0.6rem;
+      }
+    }
   }
 
   .lorem {
     padding: 5rem 0;
     .lorem-block {
       padding: 0 5rem;
-      .text-block .sub-title {
-        text-align: center;
+      .text-block {
+        .title {
+          font-size: 1.7rem;
+        }
+        .sub-title {
+          font-size: 0.9rem;
+          text-align: center;
+        }
+        .par {
+          font-size: 0.7rem;
+        }
+        .btn {
+          font-size: 0.7rem;
+          width: 6rem;
+          height: 2rem;
+        }
+      }
+      .img-block img {
+        width: 150px;
+        height: 150px;
       }
     }
   }
@@ -627,13 +743,31 @@ body {
   }
 }
 
+@media only screen and (max-width: 700px) {
+  .navbar-sub {
+    display: none;
+  }
+
+  .pricing .table-block .table .column {
+    width: 150px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .main {
     padding: 4rem 2rem;
+    .text-block {
+      .title {
+        font-size: 1.5rem;
+      }
+      .sub-title {
+        font-size: 0.8rem;
+      }
+    }
   }
 
   .about {
-    padding: 0 0 4rem;
+    padding: 0 0 2rem;
     .text-block {
       padding: 0 2rem;
     }
@@ -656,6 +790,58 @@ body {
     .img-block img {
       width: 200px;
       height: 200px;
+    }
+  }
+
+  .pricing .table-block {
+    .title {
+      font-size: 1.2rem;
+    }
+    .table {
+      margin-top: 1.5rem;
+      background-position: center;
+      .column {
+        width: 100px;
+        .table-title {
+          font-size: 0.7rem;
+          padding: 0.9rem;
+          height: 1rem;
+        }
+        .border {
+          height: 2rem;
+          .table-par {
+            font-size: 0.5rem;
+            padding: 0.4rem;
+            line-height: 1;
+          }
+        }
+        .img-block .img {
+          height: 0.8rem;
+        }
+        span:last-of-type {
+          padding-bottom: 1rem;
+        }
+      }
+      .column:first-of-type .table-par,
+      .column .table-par {
+        font-size: 0.5rem;
+        padding: 0.4rem;
+      }
+    }
+  }
+
+  .footer {
+    padding: 2rem 0;
+    .footer-block {
+      align-items: center;
+      .sub-title,
+      .par,
+      .par-title {
+        font-size: 0.7rem;
+      }
+      .par-sub-title {
+        font-size: 0.6rem;
+      }
     }
   }
 }

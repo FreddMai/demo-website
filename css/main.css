@@ -33,6 +33,7 @@ html {
   padding: 0.6rem 1.5rem 0;
   background-color: #e2e8f0;
   min-height: 3rem;
+  top: 3rem;
 }
 .navbar .nav-logo {
   font-size: 2rem;
@@ -96,6 +97,7 @@ html {
   border-bottom: 1px solid #c9c4c4;
   position: sticky;
   top: 0;
+  transition: top 500ms;
 }
 .navbar-sub .nav-menu-sub {
   display: flex;
@@ -128,7 +130,6 @@ html {
 .sub-sticky {
   position: sticky;
   top: 3.5rem;
-  transform: translateY(0);
   animation: fadein 1000ms;
 }
 
@@ -504,6 +505,30 @@ body {
   .lorem .lorem-block .text-block .par {
     text-align: center;
   }
+
+  .pricing .table-block .table .column {
+    width: 250px;
+  }
+  .pricing .table-block .table .column .table-title {
+    font-size: 1rem;
+    padding: 0.9rem;
+    height: 1.2rem;
+  }
+  .pricing .table-block .table .column .border {
+    height: 2.8rem;
+  }
+  .pricing .table-block .table .column .border .table-par {
+    font-size: 0.7rem;
+    padding: 0.8rem 0.6rem;
+  }
+  .pricing .table-block .table .column .img-block .img {
+    height: 0.8rem;
+  }
+  .pricing .table-block .table .column:first-of-type .table-par,
+.pricing .table-block .table .column .table-par {
+    font-size: 0.7rem;
+    padding: 0.8rem 0.6rem;
+  }
 }
 @media only screen and (max-width: 950px) {
   .navbar {
@@ -525,7 +550,8 @@ body {
     padding: 0;
   }
   .navbar .nav-menu .nav-item,
-.navbar .nav-menu .nav-item-btn {
+.navbar .nav-menu .nav-item-btn,
+.navbar .nav-menu .nav-item:last-of-type {
     margin: 1rem 0;
   }
   .navbar .nav-menu.active {
@@ -547,6 +573,10 @@ body {
 
   .navbar-sub {
     position: unset;
+    padding: 0 1rem;
+  }
+  .navbar-sub .nav-menu-sub .nav-item .nav-link {
+    padding: 0.5rem;
   }
 
   .main {
@@ -566,6 +596,17 @@ body {
     padding: 0.8rem 2rem;
     width: auto;
   }
+  .main .info-block .info-box .sub-title {
+    font-size: 0.8rem;
+    margin: 0.7rem 0;
+  }
+  .main .info-block .info-box .par {
+    font-size: 0.7rem;
+  }
+  .main .info-block .info-box img {
+    width: 45px;
+    height: 45px;
+  }
 
   .register {
     padding: 0;
@@ -573,9 +614,57 @@ body {
   .register .text-block {
     padding: 4rem 5rem;
   }
+  .register .text-block .title {
+    font-size: 1.7rem;
+  }
+  .register .text-block .btn-block .sub-title {
+    font-size: 0.8rem;
+  }
+  .register .text-block .btn-block .btn {
+    font-size: 0.7rem;
+    width: 10rem;
+    height: 2.5rem;
+  }
 
+  .about {
+    padding: 3rem 0;
+  }
   .about .text-block {
     padding: 0 5rem;
+  }
+  .about .text-block .sub-title {
+    font-size: 0.8rem;
+  }
+
+  .pricing .table-block .title {
+    font-size: 1.4rem;
+  }
+  .pricing .table-block .table .column {
+    width: 200px;
+  }
+  .pricing .table-block .table .column .table-title {
+    font-size: 0.7rem;
+    padding: 0.9rem;
+    height: 1rem;
+  }
+  .pricing .table-block .table .column .border {
+    height: 2.4rem;
+  }
+  .pricing .table-block .table .column .border .table-par {
+    font-size: 0.5rem;
+    padding: 0.8rem 0.6rem;
+    line-height: 0.7rem;
+  }
+  .pricing .table-block .table .column .img-block .img {
+    height: 0.8rem;
+  }
+  .pricing .table-block .table .column span:last-of-type {
+    padding-bottom: 1rem;
+  }
+  .pricing .table-block .table .column:first-of-type .table-par,
+.pricing .table-block .table .column .table-par {
+    font-size: 0.5rem;
+    padding: 0.8rem 0.6rem;
   }
 
   .lorem {
@@ -584,8 +673,24 @@ body {
   .lorem .lorem-block {
     padding: 0 5rem;
   }
+  .lorem .lorem-block .text-block .title {
+    font-size: 1.7rem;
+  }
   .lorem .lorem-block .text-block .sub-title {
+    font-size: 0.9rem;
     text-align: center;
+  }
+  .lorem .lorem-block .text-block .par {
+    font-size: 0.7rem;
+  }
+  .lorem .lorem-block .text-block .btn {
+    font-size: 0.7rem;
+    width: 6rem;
+    height: 2rem;
+  }
+  .lorem .lorem-block .img-block img {
+    width: 150px;
+    height: 150px;
   }
 
   .footer {
@@ -604,13 +709,28 @@ body {
     font-size: 0.8rem;
   }
 }
+@media only screen and (max-width: 700px) {
+  .navbar-sub {
+    display: none;
+  }
+
+  .pricing .table-block .table .column {
+    width: 150px;
+  }
+}
 @media only screen and (max-width: 500px) {
   .main {
     padding: 4rem 2rem;
   }
+  .main .text-block .title {
+    font-size: 1.5rem;
+  }
+  .main .text-block .sub-title {
+    font-size: 0.8rem;
+  }
 
   .about {
-    padding: 0 0 4rem;
+    padding: 0 0 2rem;
   }
   .about .text-block {
     padding: 0 2rem;
@@ -632,6 +752,56 @@ body {
   .lorem .lorem-block .img-block img {
     width: 200px;
     height: 200px;
+  }
+
+  .pricing .table-block .title {
+    font-size: 1.2rem;
+  }
+  .pricing .table-block .table {
+    margin-top: 1.5rem;
+    background-position: center;
+  }
+  .pricing .table-block .table .column {
+    width: 100px;
+  }
+  .pricing .table-block .table .column .table-title {
+    font-size: 0.7rem;
+    padding: 0.9rem;
+    height: 1rem;
+  }
+  .pricing .table-block .table .column .border {
+    height: 2rem;
+  }
+  .pricing .table-block .table .column .border .table-par {
+    font-size: 0.5rem;
+    padding: 0.4rem;
+    line-height: 1;
+  }
+  .pricing .table-block .table .column .img-block .img {
+    height: 0.8rem;
+  }
+  .pricing .table-block .table .column span:last-of-type {
+    padding-bottom: 1rem;
+  }
+  .pricing .table-block .table .column:first-of-type .table-par,
+.pricing .table-block .table .column .table-par {
+    font-size: 0.5rem;
+    padding: 0.4rem;
+  }
+
+  .footer {
+    padding: 2rem 0;
+  }
+  .footer .footer-block {
+    align-items: center;
+  }
+  .footer .footer-block .sub-title,
+.footer .footer-block .par,
+.footer .footer-block .par-title {
+    font-size: 0.7rem;
+  }
+  .footer .footer-block .par-sub-title {
+    font-size: 0.6rem;
   }
 }
 
