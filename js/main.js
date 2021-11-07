@@ -1,7 +1,7 @@
 $(document).ready(function () {
   "use strict";
 
-  // Add or remove active class on main menu.
+  //   Add or remove active class on main menu.
   $("ul.nav-menu > li").click(function (e) {
     e.preventDefault();
     $("ul.nav-menu > li").removeClass("active");
@@ -36,7 +36,6 @@ $(document).ready(function () {
     $(window).scroll(function (event) {
       // On scroll.
       var st = $(this).scrollTop();
-
       if (Math.abs(lastScrollTop - st) <= delta) return;
 
       if (st > lastScrollTop) {
@@ -52,3 +51,32 @@ $(document).ready(function () {
     });
   }
 });
+
+// var nav = document.querySelector("ul.nav-menu > li");
+// nav.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   var current = document.getElementsByClassName("active");
+//   current.className = current.className.replace(" active", "");
+//   this.className += " active";
+//   // $("ul.nav-menu > li").removeClass("active");
+//   // $(this).addClass("active");
+// });
+
+// var lastScrollTop = 0,
+//   delta = 5;
+// if (window.innerWidth > 950) {
+//   window.addEventListener("scroll", (event) => {
+//     var st = window.scrollTop;
+//     console.log(st);
+//     if (st > lastScrollTop) {
+//       // If scrolling down.
+//       document.querySelector.remove("sticky");
+//       document.querySelector.remove("sub-sticky");
+//     } else {
+//       // If scrolling up.
+//       document.querySelector.add("sticky");
+//       document.querySelector.add("sub-sticky");
+//     }
+//     lastScrollTop = st;
+//   });
+// }
