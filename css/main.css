@@ -529,6 +529,18 @@ body {
     font-size: 0.7rem;
     padding: 0.8rem 0.6rem;
   }
+
+  .lorem {
+    padding: 5rem 0;
+  }
+
+  .footer .footer-block {
+    padding: 0 1rem;
+  }
+  .footer .footer-block .sub-title,
+.footer .footer-block .par {
+    width: 5rem;
+  }
 }
 @media only screen and (max-width: 950px) {
   .navbar {
@@ -698,6 +710,9 @@ body {
     align-items: center;
     text-align: center;
   }
+  .footer .footer-block {
+    align-items: center;
+  }
   .footer .footer-block .sub-title .par,
 .footer .footer-block .footer .footer-block .par {
     font-size: 1.2rem;
@@ -733,7 +748,8 @@ body {
     padding: 0 0 2rem;
   }
   .about .text-block {
-    padding: 0 2rem;
+    padding: 2rem;
+    text-align: center;
   }
 
   .register .text-block {

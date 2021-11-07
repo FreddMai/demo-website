@@ -548,6 +548,18 @@ body {
       padding: 0.8rem 0.6rem;
     }
   }
+
+  .lorem {
+    padding: 5rem 0;
+  }
+
+  .footer .footer-block {
+    padding: 0 1rem;
+    .sub-title,
+    .par {
+      width: 5rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 950px) {
@@ -727,6 +739,7 @@ body {
     align-items: center;
     text-align: center;
     .footer-block {
+      align-items: center;
       .sub-title,
       .footer .footer-block {
         .par {
@@ -769,7 +782,8 @@ body {
   .about {
     padding: 0 0 2rem;
     .text-block {
-      padding: 0 2rem;
+      padding: 2rem;
+      text-align: center;
     }
   }
 
